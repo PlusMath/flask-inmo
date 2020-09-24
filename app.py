@@ -26,18 +26,35 @@ for item in data:
     i = i + 1
 
 
+
+
+
 from flask import Blueprint, request, render_template, flash, redirect, url_for
 from flask import current_app as current_app
 # 추가할 모듈이 있다면 추가
 
 
-main= Blueprint('main', __name__, url_prefix='/')
-@main.route('/main', methods=['GET'])
-def index():
-      naverdata = final[0]
-      # /main/index.html은 사실 /project_name/app/templates/main/index.html을 가리킵니다.
-      return render_template('table.html', naverdata_1 = naverdata)
 
+main = Blueprint('main', __name__, url_prefix='/')
+@main.route('/', methods=['GET'])
+def index():
+      naverdata1 = final[0]
+      naverdata2 = final[1]
+      naverdata3 = final[2]
+      naverdata4 = final[3]
+      naverdata5 = final[4]
+      naverdata6 = final[5]
+      naverdata7 = final[6]
+      naverdata8 = final[7]
+      naverdata9 = final[8]
+      naverdata10 = final[9]
+
+
+
+
+            # /main/index.html은 사실 /project_name/app/templates/main/index.html을 가리킵니다.
+      return render_template('/main/table.html', naverdata_1=naverdata1,naverdata_2=naverdata2,naverdata_3=naverdata3,naverdata_4=naverdata4,naverdata_5=naverdata5,naverdata_6=naverdata6,naverdata_7=naverdata7,naverdata_8=naverdata8,naverdata_9=naverdata9,naverdata_10=naverdata10)
+      
 
 
 
