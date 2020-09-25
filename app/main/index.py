@@ -74,8 +74,8 @@ i = 0
 final_2 = []
 
 for item in data:
-    item_2 = item.get_text()
-    final_2.insert(i,item_2)
+    item_1 = item.get_text()
+    final_2.insert(i,item_1)
     i = i + 1
 
         
