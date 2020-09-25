@@ -94,6 +94,7 @@ data = soup.select('div.ellipsis.rank01 > span > a')
 
 i = 0
 final_3 = []
+
 for item in data:
     item_1 = item.get_text()
     final_3.insert(i,item_1)
