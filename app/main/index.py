@@ -173,16 +173,7 @@ def index():
       zumdata9 = final_1[16]
       zumdata10 = final_1[18]
 
-      googledata1 = final_2[2]
-      googledata2 = final_2[5]
-      googledata3 = final_2[8]
-      googledata4 = final_2[11]
-      googledata5 = final_2[14]
-      googledata6 = final_2[17]
-      googledata7 = final_2[20]
-      googledata8 = final_2[23]
-      googledata9 = final_2[26]
-      googledata10 = final_2[29]
+ 
 
       melondata1 = final_3[0]
       melondata2 = final_3[1]
@@ -223,7 +214,6 @@ def index():
 
       return render_template('/main/table.html', naverdata_1=naverdata1,naverdata_2=naverdata2,naverdata_3=naverdata3,naverdata_4=naverdata4,naverdata_5=naverdata5,naverdata_6=naverdata6,naverdata_7=naverdata7,naverdata_8=naverdata8,naverdata_9=naverdata9,naverdata_10=naverdata10,
       zumdata_1=zumdata1,zumdata_2=zumdata2,zumdata_3=zumdata3,zumdata_4=zumdata4,zumdata_5=zumdata5,zumdata_6=zumdata6,zumdata_7=zumdata7,zumdata_8=zumdata8,zumdata_9=zumdata9,zumdata_10=zumdata10,
-      googledata_1=googledata1,googledata_2=googledata2,googledata_3=googledata3,googledata_4=googledata4,googledata_5=googledata5,googledata_6=googledata6,googledata_7=googledata7,googledata_8=googledata8,googledata_9=googledata9,googledata_10=googledata10,
       melondata_1=melondata1, melondata_2=melondata2, melondata_3=melondata3, melondata_4=melondata4, melondata_5=melondata5, melondata_6=melondata6, melondata_7=melondata7, melondata_8=melondata8, melondata_9=melondata9, melondata_10=melondata10,
       geniedata_1=geniedata1, geniedata_2=geniedata2, geniedata_3=geniedata3, geniedata_4=geniedata4, geniedata_5=geniedata5, geniedata_6=geniedata6, geniedata_7=geniedata7, geniedata_8=geniedata8, geniedata_9=geniedata9, geniedata_10=geniedata10,
       bugsdata_1=bugsdata1, bugsdata_2=bugsdata2, bugsdata_3=bugsdata3, bugsdata_4=bugsdata4, bugsdata_5=bugsdata5, bugsdata_6=bugsdata6, bugsdata_7=bugsdata7, bugsdata_8=bugsdata8, bugsdata_9=bugsdata9, bugsdata_10=bugsdata10
