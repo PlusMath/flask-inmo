@@ -58,15 +58,12 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 
-options = Options()
-options.binary_location = "/usr/bin/google-chrome.exe"
-options.add_argument("--start-maxinized")
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
-options.add_experimental_option("excludeSwithches", ["enable-automation"])
-options.add_experimental_option)'useAutomationExtension' , False)
-
-driver = webdriver.Chrome(options=options, executable_path=r'/home/ubuntu/projects/myproject/chromedriver')
+chrome_options = Options()
+chrome_options.binary_location = r"/usr/bin/google-chrome"
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage') 
+driver = webdriver.Chrome(options=chrome_options, executable_path=r'/home/ubuntu/projects/myproject/chromedriver')
 driver.get("https://trends.google.co.kr/trends/?geo=KR")
 req = driver.page_source
 soup = BeautifulSoup(req,'html.parser')
