@@ -55,10 +55,19 @@ for item in data:
     i = i + 1
 
 from selenium import webdriver
-import time
+from selenium.webdriver.chrome.options import Options
 
-driver = webdriver.Chrome('C:/venvs/chromedriver')
-a = driver.get("https://trends.google.co.kr/trends/?geo=KR")
+
+options = Options()
+options.binary_location = "/usr/bin/google-chrome.exe"
+options.add_argument("--start-maxinized")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_experimental_option("excludeSwithches", ["enable-automation"])
+options.add_experimental_option)'useAutomationExtension' , False)
+
+driver = webdriver.Chrome(options=options, executable_path=r'/home/ubuntu/projects/myproject/chromedriver')
+driver.get("https://trends.google.co.kr/trends/?geo=KR")
 req = driver.page_source
 soup = BeautifulSoup(req,'html.parser')
 
