@@ -152,8 +152,14 @@ for item in data:
 
 
 main = Blueprint('main', __name__, url_prefix='/')
-@main.route('/', methods=['GET'])
+@main.route('/',methods=['GET'])
 def index():
+    return render_template('/main/main.html')
+@main.route('/inproduct',methods=['GET'])
+def inpro_1():
+    return render_template('/inpro/inpro.html')
+@main.route('/inmo', methods=['GET'])
+def inmo_1():
       naverdata1 = final[0]
       naverdata2 = final[1]
       naverdata3 = final[2]
@@ -226,7 +232,7 @@ def index():
       
 
 
-      return render_template('/main/table.html', naverdata_1=naverdata1,naverdata_2=naverdata2,naverdata_3=naverdata3,naverdata_4=naverdata4,naverdata_5=naverdata5,naverdata_6=naverdata6,naverdata_7=naverdata7,naverdata_8=naverdata8,naverdata_9=naverdata9,naverdata_10=naverdata10,
+      return render_template('/inmo/table.html', naverdata_1=naverdata1,naverdata_2=naverdata2,naverdata_3=naverdata3,naverdata_4=naverdata4,naverdata_5=naverdata5,naverdata_6=naverdata6,naverdata_7=naverdata7,naverdata_8=naverdata8,naverdata_9=naverdata9,naverdata_10=naverdata10,
       zumdata_1=zumdata1,zumdata_2=zumdata2,zumdata_3=zumdata3,zumdata_4=zumdata4,zumdata_5=zumdata5,zumdata_6=zumdata6,zumdata_7=zumdata7,zumdata_8=zumdata8,zumdata_9=zumdata9,zumdata_10=zumdata10,
       googledata_1=googledata1,googledata_2=googledata2,googledata_3=googledata3,googledata_4=googledata4,googledata_5=googledata5,googledata_6=googledata6,googledata_7=googledata7,googledata_8=googledata8,googledata_9=googledata9,googledata_10=googledata10,
       melondata_1=melondata1, melondata_2=melondata2, melondata_3=melondata3, melondata_4=melondata4, melondata_5=melondata5, melondata_6=melondata6, melondata_7=melondata7, melondata_8=melondata8, melondata_9=melondata9, melondata_10=melondata10,

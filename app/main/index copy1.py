@@ -1,108 +1,103 @@
 import requests
-# bs4 라 불리는 html 분석 라이브러리
 from bs4 import BeautifulSoup
-
 from flask import Blueprint, request, render_template, flash, redirect, url_for
 from flask import current_app as app
-# 추가할 모듈이 있다면 추가
+from selenium import webdriver
 
 
 
 
-# 유저 설정
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
 
-# 네이버 메인이 아닌 DataLab 페이지
+
 url = 'https://datalab.naver.com/keyword/realtimeList.naver?where=main'
 
-# User 설정
+
 res = requests.get(url, headers = headers)
 
-# res.content 주의
+
 soup = BeautifulSoup(res.content, 'html.parser')
 
-# span.item_title 정보를 선택
+
 data = soup.select('span.item_title')
 
 i = 0
 final = []
-# for 문으로 출력해준다.
+
 for item in data:
     item_1 = item.get_text()
     final.insert(i,item_1)
     i = i + 1
     
 
-# 유저 설정
+
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'}
 
-# 네이버 메인이 아닌 DataLab 페이지
+
 url = 'https://zum.com/#!/home'
 
-# User 설정
+
 res = requests.get(url, headers = headers)
 
-# res.content 주의
+
 soup = BeautifulSoup(res.content, 'html.parser')
 
-# span.item_title 정보를 선택
+
 data = soup.select('span.keyword.d_keyword')
 
 
 i = 0
 final_1 = []
-# for 문으로 출력해준다.
+
 for item in data:
     item_1 = item.get_text()
     final_1.insert(i,item_1)
     i = i + 1
 
-
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
-
-# 네이버 메인이 아닌 DataLab 페이지
-url = 'http://rank.ezme.net/diff'
-
-# User 설정
-res = requests.get(url, headers = headers)
-
-# res.content 주의
-soup = BeautifulSoup(res.content, 'html.parser')
-
-# span.item_title 정보를 선택
-data = soup.select('span.mdl-badge.mdl-badge--no-background')
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 
-# for 문으로 출력해준다.
+chrome_options = Options()
+chrome_options.binary_location = r"/usr/bin/google-chrome"
+chrome_options.add_argument('--headless')
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage') 
+driver = webdriver.Chrome(options=chrome_options, executable_path=r'/home/ubuntu/projects/myproject/chromedriver')
+driver.get("https://trends.google.co.kr/trends/?geo=KR")
+req = driver.page_source
+soup = BeautifulSoup(req,'html.parser')
+
+data = soup.select('div.list-item-title')
+
 i = 0
 final_2 = []
-# for 문으로 출력해준다.
+
 for item in data:
-    item_2 = item.get_text()
-    final_2.insert(i,item_2)
+    item_1 = item.get_text()
+    final_2.insert(i,item_1)
     i = i + 1
 
-        
-# 유저 설정
+driver.quit()
+
+
+
+
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
 
-# 네이버 메인이 아닌 DataLab 페이지
+
 url = 'https://www.melon.com/chart/index.htm'
 
-# User 설정
 res = requests.get(url, headers = headers)
 
-# res.content 주의
 soup = BeautifulSoup(res.content, 'html.parser')
 
-# span.item_title 정보를 선택
 data = soup.select('div.ellipsis.rank01 > span > a')
 
 
-# for 문으로 출력해준다.
 i = 0
 final_3 = []
-# for 문으로 출력해준다.
+
 for item in data:
     item_1 = item.get_text()
     final_3.insert(i,item_1)
@@ -112,23 +107,18 @@ for item in data:
 
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
 
-# 네이버 메인이 아닌 DataLab 페이지
 url = 'https://www.genie.co.kr/chart/top200'
 
-# User 설정
 res = requests.get(url, headers = headers)
 
-# res.content 주의
 soup = BeautifulSoup(res.content, 'html.parser')
 
-# span.item_title 정보를 선택
 data = soup.select('a.title.ellipsis')
 
 
-# for 문으로 출력해준다.
 i = 0
 final_4 = []
-# for 문으로 출력해준다.
+
 for item in data:
     item_1 = item.get_text(strip=True)
     final_4.insert(i,item_1)
@@ -136,23 +126,23 @@ for item in data:
 
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
 
-# 네이버 메인이 아닌 DataLab 페이지
+
 url = 'https://music.bugs.co.kr/'
 
-# User 설정
+
 res = requests.get(url, headers = headers)
 
-# res.content 주의
+
 soup = BeautifulSoup(res.content, 'html.parser')
 
-# span.item_title 정보를 선택
+
 data = soup.select('th > p.title > a')
 
 
-# for 문으로 출력해준다.
+
 i = 0
 final_5 = []
-# for 문으로 출력해준다.
+
 for item in data:
     item_1 = item.get_text()
     final_5.insert(i,item_1)
@@ -186,16 +176,18 @@ def index():
       zumdata9 = final_1[16]
       zumdata10 = final_1[18]
 
-      googledata1 = final_2[2]
-      googledata2 = final_2[5]
-      googledata3 = final_2[8]
-      googledata4 = final_2[11]
-      googledata5 = final_2[14]
-      googledata6 = final_2[17]
-      googledata7 = final_2[20]
-      googledata8 = final_2[23]
-      googledata9 = final_2[26]
-      googledata10 = final_2[29]
+      googledata1 = final_2[0]
+      googledata2 = final_2[1]
+      googledata3 = final_2[2]
+      googledata4 = final_2[3]
+      googledata5 = final_2[4]
+      googledata6 = final_2[5]
+      googledata7 = final_2[6]
+      googledata8 = final_2[7]
+      googledata9 = final_2[8]
+      googledata10 = final_2[9]
+
+ 
 
       melondata1 = final_3[0]
       melondata2 = final_3[1]
@@ -233,8 +225,8 @@ def index():
       
       
 
-      # /main/index.html은 사실 /project_name/app/templates/main/index.html을 가리킵니다.
-      return render_template('/main/table.html', naverdata_1=naverdata1,naverdata_2=naverdata2,naverdata_3=naverdata3,naverdata_4=naverdata4,naverdata_5=naverdata5,naverdata_6=naverdata6,naverdata_7=naverdata7,naverdata_8=naverdata8,naverdata_9=naverdata9,naverdata_10=naverdata10,
+
+      return render_template('/inmo/table.html', naverdata_1=naverdata1,naverdata_2=naverdata2,naverdata_3=naverdata3,naverdata_4=naverdata4,naverdata_5=naverdata5,naverdata_6=naverdata6,naverdata_7=naverdata7,naverdata_8=naverdata8,naverdata_9=naverdata9,naverdata_10=naverdata10,
       zumdata_1=zumdata1,zumdata_2=zumdata2,zumdata_3=zumdata3,zumdata_4=zumdata4,zumdata_5=zumdata5,zumdata_6=zumdata6,zumdata_7=zumdata7,zumdata_8=zumdata8,zumdata_9=zumdata9,zumdata_10=zumdata10,
       googledata_1=googledata1,googledata_2=googledata2,googledata_3=googledata3,googledata_4=googledata4,googledata_5=googledata5,googledata_6=googledata6,googledata_7=googledata7,googledata_8=googledata8,googledata_9=googledata9,googledata_10=googledata10,
       melondata_1=melondata1, melondata_2=melondata2, melondata_3=melondata3, melondata_4=melondata4, melondata_5=melondata5, melondata_6=melondata6, melondata_7=melondata7, melondata_8=melondata8, melondata_9=melondata9, melondata_10=melondata10,
