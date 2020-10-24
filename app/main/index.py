@@ -5,12 +5,10 @@ from flask import current_app as app
 from selenium import webdriver
 import time
 import threading
+from selenium.webdriver.chrome.options import Options
 
 
 def inmosearching():
-
-
-
     headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
 
 
@@ -58,8 +56,8 @@ def inmosearching():
         final_1.insert(i,item_1)
         i = i + 1
 
-    from selenium import webdriver
-    from selenium.webdriver.chrome.options import Options
+
+
 
 
     chrome_options = Options()
@@ -154,6 +152,7 @@ def inmosearching():
 
     threading.Timer(60, inmosearching).start()
 
+inmosearching()
 
 
 
