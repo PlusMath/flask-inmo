@@ -1,8 +1,46 @@
 <html>
     <head>
+        <style>
+            input:-ms-input-placeholder {color:#a8a8a8;}
+            input::-webkit-input-placeholder {color:#a8a8a8;}
+            input::-moz-input-placeholder {color:#a8a8a8;}
+            .search{
+                height:40px;
+                width:400px;
+                border: 1px solid #1b5ac2;
+                background: #ffffff;
+                    }
+            input{
+                font-size: 16px;
+                width: 325px;
+                padding: 10px;
+                border: 0px;
+                outline: none;
+                float: left;
+                    }
+            button{
+                width: 50px;
+                height: 100%;
+                border: 0px;
+                background: #1b5ac2;
+                outline: none;
+                float: right;
+                color: #ffffff;
+                
 
+            }
+
+        </style>
     </head>
     <body>
-        <h1>Hello world</h1>
+        <form action="http://inmo.ml/inmo">
+            <div class="search">
+                <input type="text" name="product" placeholder="검색어 입력">
+                <button>검색</button>
+            </div>
+        </form>
+
+        
+
     </body>
 </html>

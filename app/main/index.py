@@ -3,150 +3,156 @@ from bs4 import BeautifulSoup
 from flask import Blueprint, request, render_template, flash, redirect, url_for
 from flask import current_app as app
 from selenium import webdriver
+import time
+import threading
 
 
+def inmosearching():
 
 
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
 
+    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
 
-url = 'https://datalab.naver.com/keyword/realtimeList.naver?where=main'
 
+    url = 'https://datalab.naver.com/keyword/realtimeList.naver?where=main'
 
-res = requests.get(url, headers = headers)
 
+    res = requests.get(url, headers = headers)
 
-soup = BeautifulSoup(res.content, 'html.parser')
 
+    soup = BeautifulSoup(res.content, 'html.parser')
 
-data = soup.select('span.item_title')
 
-i = 0
-final = []
+    data = soup.select('span.item_title')
 
-for item in data:
-    item_1 = item.get_text()
-    final.insert(i,item_1)
-    i = i + 1
-    
+    i = 0
+    final = []
 
+    for item in data:
+        item_1 = item.get_text()
+        final.insert(i,item_1)
+        i = i + 1
+        
 
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'}
 
+    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'}
 
-url = 'https://zum.com/#!/home'
 
+    url = 'https://zum.com/#!/home'
 
-res = requests.get(url, headers = headers)
 
+    res = requests.get(url, headers = headers)
 
-soup = BeautifulSoup(res.content, 'html.parser')
 
+    soup = BeautifulSoup(res.content, 'html.parser')
 
-data = soup.select('span.keyword.d_keyword')
 
+    data = soup.select('span.keyword.d_keyword')
 
-i = 0
-final_1 = []
 
-for item in data:
-    item_1 = item.get_text()
-    final_1.insert(i,item_1)
-    i = i + 1
+    i = 0
+    final_1 = []
 
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+    for item in data:
+        item_1 = item.get_text()
+        final_1.insert(i,item_1)
+        i = i + 1
 
+    from selenium import webdriver
+    from selenium.webdriver.chrome.options import Options
 
-chrome_options = Options()
-chrome_options.binary_location = r"/usr/bin/google-chrome"
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--disable-dev-shm-usage') 
-driver = webdriver.Chrome(options=chrome_options, executable_path=r'/home/ubuntu/projects/myproject/chromedriver')
-driver.get("https://trends.google.co.kr/trends/?geo=KR")
-req = driver.page_source
-soup = BeautifulSoup(req,'html.parser')
 
-data = soup.select('div.list-item-title')
+    chrome_options = Options()
+    chrome_options.binary_location = r"/usr/bin/google-chrome"
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage') 
+    driver = webdriver.Chrome(options=chrome_options, executable_path=r'/home/ubuntu/projects/myproject/chromedriver')
+    driver.get("https://trends.google.co.kr/trends/?geo=KR")
+    req = driver.page_source
+    soup = BeautifulSoup(req,'html.parser')
 
-i = 0
-final_2 = []
+    data = soup.select('div.list-item-title')
 
-for item in data:
-    item_1 = item.get_text()
-    final_2.insert(i,item_1)
-    i = i + 1
+    i = 0
+    final_2 = []
 
-driver.quit()
+    for item in data:
+        item_1 = item.get_text()
+        final_2.insert(i,item_1)
+        i = i + 1
 
+    driver.quit()
 
 
 
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
 
+    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
 
-url = 'https://www.melon.com/chart/index.htm'
 
-res = requests.get(url, headers = headers)
+    url = 'https://www.melon.com/chart/index.htm'
 
-soup = BeautifulSoup(res.content, 'html.parser')
+    res = requests.get(url, headers = headers)
 
-data = soup.select('div.ellipsis.rank01 > span > a')
+    soup = BeautifulSoup(res.content, 'html.parser')
 
+    data = soup.select('div.ellipsis.rank01 > span > a')
 
-i = 0
-final_3 = []
 
-for item in data:
-    item_1 = item.get_text()
-    final_3.insert(i,item_1)
-    i = i + 1
+    i = 0
+    final_3 = []
 
+    for item in data:
+        item_1 = item.get_text()
+        final_3.insert(i,item_1)
+        i = i + 1
 
 
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
 
-url = 'https://www.genie.co.kr/chart/top200'
+    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
 
-res = requests.get(url, headers = headers)
+    url = 'https://www.genie.co.kr/chart/top200'
 
-soup = BeautifulSoup(res.content, 'html.parser')
+    res = requests.get(url, headers = headers)
 
-data = soup.select('a.title.ellipsis')
+    soup = BeautifulSoup(res.content, 'html.parser')
 
+    data = soup.select('a.title.ellipsis')
 
-i = 0
-final_4 = []
 
-for item in data:
-    item_1 = item.get_text(strip=True)
-    final_4.insert(i,item_1)
-    i = i + 1
+    i = 0
+    final_4 = []
 
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
+    for item in data:
+        item_1 = item.get_text(strip=True)
+        final_4.insert(i,item_1)
+        i = i + 1
 
+    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
 
-url = 'https://music.bugs.co.kr/'
 
+    url = 'https://music.bugs.co.kr/'
 
-res = requests.get(url, headers = headers)
 
+    res = requests.get(url, headers = headers)
 
-soup = BeautifulSoup(res.content, 'html.parser')
 
+    soup = BeautifulSoup(res.content, 'html.parser')
 
-data = soup.select('th > p.title > a')
 
+    data = soup.select('th > p.title > a')
 
 
-i = 0
-final_5 = []
 
-for item in data:
-    item_1 = item.get_text()
-    final_5.insert(i,item_1)
-    i = i + 1
+    i = 0
+    final_5 = []
+
+    for item in data:
+        item_1 = item.get_text()
+        final_5.insert(i,item_1)
+        i = i + 1
+
+    threading.Timer(60, inmosearching).start()
 
 
 
@@ -239,3 +245,4 @@ def inmo_1():
       geniedata_1=geniedata1, geniedata_2=geniedata2, geniedata_3=geniedata3, geniedata_4=geniedata4, geniedata_5=geniedata5, geniedata_6=geniedata6, geniedata_7=geniedata7, geniedata_8=geniedata8, geniedata_9=geniedata9, geniedata_10=geniedata10,
       bugsdata_1=bugsdata1, bugsdata_2=bugsdata2, bugsdata_3=bugsdata3, bugsdata_4=bugsdata4, bugsdata_5=bugsdata5, bugsdata_6=bugsdata6, bugsdata_7=bugsdata7, bugsdata_8=bugsdata8, bugsdata_9=bugsdata9, bugsdata_10=bugsdata10
       )
+
