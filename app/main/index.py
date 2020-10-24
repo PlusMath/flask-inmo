@@ -4,6 +4,8 @@ from flask import Blueprint, request, render_template, flash, redirect, url_for
 from flask import current_app as app
 from selenium import webdriver
 import time, threading
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 
 
@@ -57,8 +59,7 @@ def inmo():
         final_1.insert(i,item_1)
         i = i + 1
 
-    from selenium import webdriver
-    from selenium.webdriver.chrome.options import Options
+
 
 
     chrome_options = Options()
