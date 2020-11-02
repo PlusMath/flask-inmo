@@ -150,7 +150,7 @@ for item in data:
 
 
 
-
+main = Blueprint('main', __name__, url_prefix='/')
 @main.route('/',methods=['GET'])
 def index():
     return render_template('/main/main.html')
