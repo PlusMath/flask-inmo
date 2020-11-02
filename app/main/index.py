@@ -233,4 +233,4 @@ def inmo_1():
       geniedata_1=geniedata1, geniedata_2=geniedata2, geniedata_3=geniedata3, geniedata_4=geniedata4, geniedata_5=geniedata5, geniedata_6=geniedata6, geniedata_7=geniedata7, geniedata_8=geniedata8, geniedata_9=geniedata9, geniedata_10=geniedata10,
       bugsdata_1=bugsdata1, bugsdata_2=bugsdata2, bugsdata_3=bugsdata3, bugsdata_4=bugsdata4, bugsdata_5=bugsdata5, bugsdata_6=bugsdata6, bugsdata_7=bugsdata7, bugsdata_8=bugsdata8, bugsdata_9=bugsdata9, bugsdata_10=bugsdata10
       )
-      threading.Timer(60, inmo_1).start()
+    
