@@ -192,9 +192,6 @@ def inmo_1():
     googledata9 = final_2[8]
     googledata10 = final_2[9]
 
-
-
-
     melondata1 = final_3[0]
     melondata2 = final_3[1]
     melondata3 = final_3[2]
