@@ -32,7 +32,7 @@ for item in data:
     
 
 
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'}
+
 
 
 url = 'https://zum.com/#!/home'
@@ -79,7 +79,7 @@ for item in data:
 
 
 
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
+
 
 
 url = 'https://www.melon.com/chart/index.htm'
@@ -101,7 +101,7 @@ for item in data:
 
 
 
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
+
 
 url = 'https://www.genie.co.kr/chart/top200'
 
@@ -120,7 +120,6 @@ for item in data:
     final_4.insert(i,item_1)
     i = i + 1
 
-headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.122 Safari/537.36'}
 
 
 url = 'https://music.bugs.co.kr/'
