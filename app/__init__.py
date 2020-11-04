@@ -1,16 +1,14 @@
 from flask import Flask
 
 
-def create_app():
-    app = Flask(__name__)
 
-    from app.main.index import main as main
+app = Flask(__name__)
 
-    app.register_blueprint(main)
- 
-    
+from app.main.index import main as main
 
-    return app
+app.register_blueprint(main)
+
+
 
 
 
